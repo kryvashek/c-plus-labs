@@ -22,3 +22,15 @@ void Student::AddMark( Mark m ) {
 double Student::Average() {
 	return .25 * ( double )_test + .75 * _average;
 }
+
+const string & Student::Surname() {
+	return _surname;
+}
+
+bool StudentComparer::ByAverage( Student & one, Student & two ) {
+	return one.Average() > two.Average();
+}
+
+bool StudentComparer::BySurname( Student & one, Student & two ) {
+	return one.Surname() < two.Surname();
+}

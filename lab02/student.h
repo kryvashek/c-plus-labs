@@ -27,6 +27,13 @@ public:
 	void AddTest( Mark m );
 	void AddMark( Mark m );
 	double Average();
+	const string & Surname();
+};
+
+class StudentComparer {
+public:
+	static bool ByAverage( Student & one, Student & two );
+	static bool BySurname( Student & one, Student & two );
 };
 
 #endif //C_STUDENT_H
