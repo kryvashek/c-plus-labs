@@ -19,11 +19,11 @@ void Student::AddMark( Mark m ) {
 	_marks.push_back( m );
 }
 
-double Student::Average() {
+double Student::Average() const {
 	return .25 * ( double )_test + .75 * _average;
 }
 
-const string & Student::Surname() {
+const string & Student::Surname() const {
 	return _surname;
 }
 

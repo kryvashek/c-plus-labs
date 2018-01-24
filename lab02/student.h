@@ -26,8 +26,8 @@ public:
 	explicit Student( string & surname );
 	void AddTest( Mark m );
 	void AddMark( Mark m );
-	double Average();
-	const string & Surname();
+	double Average() const;
+	const string & Surname() const;
 };
 
 class StudentComparer {
