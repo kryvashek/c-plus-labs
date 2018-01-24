@@ -3,9 +3,11 @@
 //
 
 #include "student.h"
+#include <limits>
 
 Student::Student( string & surname ) :
 	_surname( surname ),
+	_tested( false ),
 	_average( .0 ),
 	_test( F )
 	{}
@@ -17,12 +19,14 @@ Student::Student( Student && student ) noexcept {
 Student & Student::operator=( Student && student ) noexcept {
 	const_cast< string & >( _surname ) = student._surname;
 	_average = student._average;
+	_tested = student._tested;
 	_test = student._test;
 	_marks = std::move( student._marks );
 	return *this;
 }
 
 void Student::SetTest( Mark m ) {
+	_tested = true;
 	_test = m;
 }
 
@@ -32,7 +36,7 @@ void Student::AddMark( Mark m ) {
 }
 
 double Student::Average() const {
-	return .25 * ( double )_test + .75 * _average;
+	return ( _tested ? .25 * ( double )_test + .75 * _average : std::numeric_limits< double >::quiet_NaN() );
 }
 
 const string & Student::Surname() const {

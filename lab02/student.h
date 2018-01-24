@@ -18,6 +18,7 @@ enum Mark {
 struct Student {
 private:
 	const string	_surname;
+	bool			_tested;
 	double			_average;
 	Mark			_test;
 	vector< Mark >	_marks;
