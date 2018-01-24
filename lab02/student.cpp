@@ -10,7 +10,19 @@ Student::Student( string & surname ) :
 	_test( F )
 	{}
 
-void Student::AddTest( Mark m ) {
+Student::Student( Student && student ) noexcept {
+	*this = std::move( student );
+}
+
+Student & Student::operator=( Student && student ) noexcept {
+	const_cast< string & >( _surname ) = student._surname;
+	_average = student._average;
+	_test = student._test;
+	_marks = std::move( student._marks );
+	return *this;
+}
+
+void Student::SetTest( Mark m ) {
 	_test = m;
 }
 
@@ -27,10 +39,10 @@ const string & Student::Surname() const {
 	return _surname;
 }
 
-bool StudentComparer::ByAverage( Student & one, Student & two ) {
+bool Student::CompareByAverage( Student & one, Student & two ) {
 	return one.Average() > two.Average();
 }
 
-bool StudentComparer::BySurname( Student & one, Student & two ) {
+bool Student::CompareBySurname( Student & one, Student & two ) {
 	return one.Surname() < two.Surname();
 }

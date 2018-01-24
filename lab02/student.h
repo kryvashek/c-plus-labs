@@ -24,16 +24,15 @@ private:
 
 public:
 	explicit Student( string & surname );
-	void AddTest( Mark m );
+	Student( Student && student ) noexcept;
+	Student & operator=( Student && student ) noexcept;
+	void SetTest( Mark m );
 	void AddMark( Mark m );
 	double Average() const;
 	const string & Surname() const;
-};
 
-class StudentComparer {
-public:
-	static bool ByAverage( Student & one, Student & two );
-	static bool BySurname( Student & one, Student & two );
+	static bool CompareByAverage( Student & one, Student & two );
+	static bool CompareBySurname( Student & one, Student & two );
 };
 
 #endif //C_STUDENT_H
