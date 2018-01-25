@@ -4,4 +4,5 @@ project(c__)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(c__
-        lab02/student.cpp)
+        lab02/student.cpp
+        lab02/group.cpp)
