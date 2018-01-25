@@ -21,7 +21,7 @@ private:
 	bool			_tested;
 	double			_average;
 	Mark			_test;
-	vector< Mark >	_marks;
+	unsigned long	_marks;
 
 public:
 	explicit Student( string & surname );

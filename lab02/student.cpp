@@ -21,7 +21,7 @@ Student & Student::operator=( Student && student ) noexcept {
 	_average = student._average;
 	_tested = student._tested;
 	_test = student._test;
-	_marks = std::move( student._marks );
+	_marks = student._marks;
 	return *this;
 }
 
@@ -31,8 +31,7 @@ void Student::SetTest( Mark m ) {
 }
 
 void Student::AddMark( Mark m ) {
-	_average += ( ( double )m - _average ) / ( double )( _marks.size() + 1 );
-	_marks.push_back( m );
+	_average += ( ( double )m - _average ) / ( double )( ++_marks );
 }
 
 double Student::Average() const {
