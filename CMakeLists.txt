@@ -5,4 +5,5 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_executable(c__
         lab02/student.cpp
-        lab02/group.cpp)
+        lab02/group.cpp
+        lab02/main.cpp)
